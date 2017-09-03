@@ -59,7 +59,9 @@ command = ['show ip route','show ip int brie']
 
 
 for device in netdevices:
+
     for cmd in command:
+    
         startssh(device, 'jey.siva', 'January2011', cmd)
 
 
