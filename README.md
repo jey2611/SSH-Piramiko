@@ -47,8 +47,11 @@ def startssh(host, user, passwd, commands):
 
 
 netdevices = ['192.168.0.1','192.168.0.1']
+
 username = 'cisco'
+
 password = 'cisco'
+
 command = ['show ip route','show ip int brie']
 
 
