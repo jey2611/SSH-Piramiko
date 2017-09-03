@@ -7,7 +7,6 @@ This Code takes a List of devices and a list of CLI Commands and iterate through
 Here is my code: 
 
 
-# install Paramiko
 
 import paramiko
 
@@ -53,7 +52,7 @@ password = 'cisco'
 command = ['show ip route','show ip int brie']
 
 
-# Iterate through the list of devices with the list of commands to execute
+    # Iterate through the list of devices with the list of commands to execute
 
 
 for device in netdevices:
