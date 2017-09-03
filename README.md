@@ -52,9 +52,10 @@ username = 'cisco'
 password = 'cisco'
 command = ['show ip route','show ip int brie']
 
-#with open('devices.txt','r') as devices:
 
 # Iterate through the list of devices with the list of commands to execute
+
+
 for device in netdevices:
     for cmd in command:
         startssh(device, 'jey.siva', 'January2011', cmd)
