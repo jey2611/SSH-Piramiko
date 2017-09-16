@@ -44,4 +44,4 @@ command = ['show ip route','show ip int brie']
 # Iterate through the list of devices with the list of commands to execute
 for device in netdevices:
     for cmd in command:
-        startssh(device, 'cisco', 'cisco', cmd)
+        startssh(device, username, password, cmd)
