@@ -20,10 +20,14 @@ def startssh(host, user, passwd, commands):
 
   # append output to a file
   output = open('terminaloutput.txt', 'a')
-  # Marking the Output more readable by using these lines as delimiter for each device
+  
+  # Making the Output more readable by using these lines as delimiter for each device
   output.write('\n ###################################')
   output.write('\n Connected to ')
   output.write(host)
+  output.write('\n ###################################')
+  output.write('\n' + 'Running CLI:')
+  output.write(commands)
   output.write('\n ###################################')
 
   # sending the CLI commands to the device
