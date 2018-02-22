@@ -50,6 +50,7 @@ command = 'show ip route'
 
 #with open('devices.txt','r') as devices:
 
+
 for device in netdevices:
 
     try:
@@ -57,3 +58,7 @@ for device in netdevices:
 
     except Exception as error:
         print ('\n Authentication Failed or connection error for device ' + device)
+    else:
+        print (device + ' actions Completed without errors')
+
+    
