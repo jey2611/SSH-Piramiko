@@ -1,7 +1,5 @@
 import paramiko
 
-import paramiko
-
 
 def startssh(host, user, passwd, commands):
     # type: (object, object, object, object) -> object
