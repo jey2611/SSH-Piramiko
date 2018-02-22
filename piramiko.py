@@ -53,7 +53,7 @@ command = 'show ip route'
 for device in netdevices:
 
     try:
-        startssh(device, username, password, 'Show ip route')
+        startssh(device, username, password, command)
 
     except Exception as error:
         print ('\n Authentication Failed or connection error for device ' + device)
