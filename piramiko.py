@@ -2,24 +2,17 @@ import paramiko
 
 
 def startssh(host, user, passwd, commands):
-    # type: (object, object, object, object) -> object
+ 
 
-
-    # Create Paramiko Session
     ssh_client = paramiko.SSHClient()
 
     # Must set the Host key policy as we haven't got the SSH key stored in Known Hosts
     ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-    # Connect to Device
+
     ssh_client.connect(hostname=host,
                        username=user,
                        password=passwd)
-
-
-
-
-    # if any error the Paramiko will throw an exception
 
     # append output to a file
     output = open('terminaloutput.txt', 'a')
