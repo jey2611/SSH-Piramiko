@@ -16,7 +16,9 @@ def startssh(host, user, passwd, commands):
                    username=user,
                    password=passwd)
 
-  # if any error the Paramiko will throw an exception, so not checking for errors
+    if exception paramiko.ssh_exception.AuthenticationException:
+      output.write('\n Authentication Failed ')
+   
 
   # append output to a file
   output = open('terminaloutput.txt', 'a')
