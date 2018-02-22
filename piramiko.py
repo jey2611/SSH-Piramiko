@@ -18,7 +18,9 @@ def startssh(host, user, passwd, commands):
 
     if exception paramiko.ssh_exception.AuthenticationException:
       output.write('\n Authentication Failed ')
-   
+    if exception paramiko.ssh_exception.NoValidConnectionsError(errors): 
+      output.write('\n Could not connect to device  ' + host)  
+    
 
   # append output to a file
   output = open('terminaloutput.txt', 'a')
