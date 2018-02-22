@@ -1,65 +1,61 @@
 import paramiko
 
+import paramiko
 
-#Function called "startssh"
 
 def startssh(host, user, passwd, commands):
-
-  # Create Paramiko Session
-  ssh_client = paramiko.SSHClient()
-
-  # Must set the Host key policy as we haven't got the SSH key stored in Known Hosts
-  ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-
-  # Connect to Device
-  ssh_client.connect(hostname=host,
-                   username=user,
-                   password=passwd)
-
-    if exception paramiko.ssh_exception.AuthenticationException:
-      output.write('\n Authentication Failed ')
-    if exception paramiko.ssh_exception.NoValidConnectionsError(errors): 
-      output.write('\n Could not connect to device  ' + host)  
-    
-
-  # append output to a file
-  output = open('terminaloutput.txt', 'a')
-  
-  # Making the Output more readable by using these lines as delimiter for each device
-  output.write('\n ###################################')
-  output.write('\n Connected to ')
-  output.write(host)
-  output.write('\n ###################################')
-  output.write('\n' + 'Running CLI:')
-  output.write(commands)
-  output.write('\n ###################################')
-
-  # sending the CLI commands to the device
-  stdin, stdout, stderr = ssh_client.exec_command(commands)
-  outputstring = stdout.read()
-  output.write(outputstring)
-  output.write('\n')
-
-  # terminate the SSH session
-  ssh_client.close()
-  return
-
-#End of function  "startssh" 
+    # type: (object, object, object, object) -> object
 
 
-# Device IP addresses in a list 
-netdevices = ['192.168.0.1','192.168.0.1']
+    # Create Paramiko Session
+    ssh_client = paramiko.SSHClient()
 
-#username used to login  
-username = 'cisco'
+    # Must set the Host key policy as we haven't got the SSH key stored in Known Hosts
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-#password for username 
-password = 'cisco'
+    # Connect to Device
+    ssh_client.connect(hostname=host,
+                       username=user,
+                       password=passwd)
 
-# List of commands to run  
-command = ['show ip route','show ip int brie']
 
-# Iterate through the list of devices with the list of commands to execute by calling function "startssh"
+
+
+    # if any error the Paramiko will throw an exception
+
+    # append output to a file
+    output = open('terminaloutput.txt', 'a')
+
+    output.write('\n ###################################')
+    output.write('\n Connected to ')
+    output.write(host)
+    output.write('\n ###################################')
+
+    stdin, stdout, stderr = ssh_client.exec_command(commands)
+    outputstring = stdout.read()
+    output.write(outputstring)
+    output.write('\n')
+
+    # terminate the SSH session
+    ssh_client.close()
+
+
+
+    return
+
+
+
+netdevices = ['xxxxxx','xxxxx','xxxxxx']
+username = 'xxxx'
+password = 'xxxx'
+command = 'show ip route'
+
+#with open('devices.txt','r') as devices:
+
 for device in netdevices:
-    for cmd in command:
-        startssh(device, username, password, cmd)
+
+    try:
+        startssh(device, username, password, 'Show ip route')
+
+    except Exception as error:
+        print ('\n Authentication Failed or connection error for device ' + device)
