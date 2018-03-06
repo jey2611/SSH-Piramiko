@@ -39,7 +39,7 @@ def startssh(host, user, passwd, commands):
 netdevices = ['xxxxxx','xxxxx','xxxxxx']
 username = 'xxxx'
 password = 'xxxx'
-command = ['show ip route']
+command = ['xxxxxxx', 'xxxxxx']
 
 #with open('devices.txt','r') as devices:
 
